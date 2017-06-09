@@ -3,8 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Voting", "Voting", "{6E2C9E4F-464F-401A-BC27-9292F5E80E49}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Systems", "Systems", "{7B27BBBD-3DAF-4F78-977E-EFD5E7D632AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smab.Systems.Voting.Tests", "tests\Systems\Smab.Systems.Voting.Tests\Smab.Systems.Voting.Tests.csproj", "{9E9C5B3F-D356-458F-A61A-8D2DAB3CDCAC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smab.Systems.Voting", "src\Systems\Smab.Systems.Voting\Smab.Systems.Voting.csproj", "{2E1818B1-C274-41EA-875F-3908A8C1BA04}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E9C5B3F-D356-458F-A61A-8D2DAB3CDCAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E9C5B3F-D356-458F-A61A-8D2DAB3CDCAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E9C5B3F-D356-458F-A61A-8D2DAB3CDCAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E9C5B3F-D356-458F-A61A-8D2DAB3CDCAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E1818B1-C274-41EA-875F-3908A8C1BA04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E1818B1-C274-41EA-875F-3908A8C1BA04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E1818B1-C274-41EA-875F-3908A8C1BA04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E1818B1-C274-41EA-875F-3908A8C1BA04}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6E2C9E4F-464F-401A-BC27-9292F5E80E49} = {7B27BBBD-3DAF-4F78-977E-EFD5E7D632AF}
+		{9E9C5B3F-D356-458F-A61A-8D2DAB3CDCAC} = {6E2C9E4F-464F-401A-BC27-9292F5E80E49}
+		{2E1818B1-C274-41EA-875F-3908A8C1BA04} = {6E2C9E4F-464F-401A-BC27-9292F5E80E49}
 	EndGlobalSection
 EndGlobal
