@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Smab.Platforms.Discord.Bot": {
+      "commandName": "Project",
+      "commandLineArgs": "\"MzIxODA1OTEwMTgxOTM3MTUz.DBjYtg.SYNXYz3LhYrA6ZJYwuZPuZopwZA\""
+    }
+  }
+}

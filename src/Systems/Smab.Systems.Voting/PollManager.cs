@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Smab.Systems.Voting
 {
-    public class PollManager
+    public class PollManager : IPollManager
     {
         public IList<Poll> Polls { get; set; } = new List<Poll>();
 
@@ -122,7 +122,7 @@ namespace Smab.Systems.Voting
 
         public string Search(string term)
         {
-            if (!Polls.Any(p => p.Question.Contains(term)))
+            if (!Polls.Any(p => p.Question.Contains(term) && p.IsVotingAvailable()))
             {
                 return "No results found.";
             }

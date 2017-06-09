@@ -67,7 +67,11 @@ namespace Smab.Systems.Voting.Tests
             Assert.Equal(1, _pollManager.GetVotes("Alice in Wonderland"));
 
             _pollManager.Close("Alice in Wonderland");
-            Assert.Equal("1 - Down the rabbit hole.\r\n0 - Through the looking glass.\r\n", _pollManager.GetResults("Alice in Wonderland"));
+            Assert.Equal(@"Results for 'Alice in Wonderland':
+```Markdown
+1 - Down the rabbit hole.
+0 - Through the looking glass.
+```", _pollManager.GetResults("Alice in Wonderland"));
 
             Assert.Equal(@"Question: Alice in Wonderland
 ```Markdown

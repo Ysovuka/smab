@@ -60,7 +60,7 @@ namespace Smab.Systems.Voting
 
             if (Votes.Any(v => v.Id.Equals(id)))
             {
-                throw new InvalidOperationException();
+                return false;
             }
 
             Votes.Add(new Vote(id, selectedChoice));
@@ -70,7 +70,11 @@ namespace Smab.Systems.Voting
 
         public string GetResults()
         {
+            if (IsVotingAvailable()) throw new InvalidOperationException();
+
             StringBuilder outputResults = new StringBuilder();
+            outputResults.AppendLine($"Results for '{Question}':");
+            outputResults.AppendLine("```Markdown");
             foreach (var group in Votes.GroupBy(v => v.Choice))
             {
                 outputResults.AppendLine($"{Votes.Count(v => v.Choice.Value.Equals(group.Key.Value))} - {group.Key.Value}");
@@ -80,6 +84,7 @@ namespace Smab.Systems.Voting
             {
                 outputResults.AppendLine($"0 - {choice.Value}");
             }
+            outputResults.Append("```");
 
             return outputResults.ToString();
         }
