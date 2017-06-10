@@ -14,6 +14,7 @@ namespace Smab.Platforms
 {
     class Program
     {
+        private GameBot _gameBot;
         private VoteBot _voteBot;
         private AdministratorBot _administratorBot;
         private IServiceProvider _serviceProvider;
@@ -47,6 +48,15 @@ namespace Smab.Platforms
                         {
                             _administratorBot = new AdministratorBot(_serviceProvider);
                             await _administratorBot.Start(tokenSplit[1].Replace("=", ""));
+                        });
+                    }
+
+                    if (tokenSplit[0].StartsWith("-game"))
+                    {
+                        await Task.Run(async () =>
+                        {
+                            _gameBot = new GameBot(_serviceProvider);
+                            await _gameBot.Start(tokenSplit[1].Replace("=", ""));
                         });
                     }
                 }

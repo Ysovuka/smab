@@ -2,7 +2,7 @@
   "profiles": {
     "Smab.Platforms.Discord.Bot": {
       "commandName": "Project",
-      "commandLineArgs": "-vote=\"MzIxODA1OTEwMTgxOTM3MTUz.DBjYtg.SYNXYz3LhYrA6ZJYwuZPuZopwZA\" -administrator=\"MzIyOTA5ODg0OTgxMDUxNDAy.DBzdiQ.i1wpEIcPgti33YatinXABbK4m-o\""
+      "commandLineArgs": "-vote=\"MzIxODA1OTEwMTgxOTM3MTUz.DBjYtg.SYNXYz3LhYrA6ZJYwuZPuZopwZA\" -administrator=\"MzIyOTA5ODg0OTgxMDUxNDAy.DBzdiQ.i1wpEIcPgti33YatinXABbK4m-o\" -game=\"MzIyOTM2MTUxNTUzODY3Nzg2.DBz1Sg.ZVMrLJwmQTbnT87Z0YmYgnnyt0Q\""
     }
   }
 }
