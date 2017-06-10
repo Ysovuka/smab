@@ -2,6 +2,7 @@
 using Discord.Commands;
 using Discord.WebSocket;
 using Smab.Platforms.Discord.Administration.Common;
+using Smab.Platforms.Discord.Commands.Administration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +49,10 @@ namespace Smab.Platforms.Discord.Bots
 
         private async Task InstallCommands()
         {
+            await _commands.AddModuleAsync<AnnouncementCreateCommand>();
+            await _commands.AddModuleAsync<AnnouncementDeleteCommand>();
+            await _commands.AddModuleAsync<AnnouncementStartCommand>();
+            await _commands.AddModuleAsync<AnnouncementStopCommand>();
             await _commands.AddModuleAsync<MuteCommand>();
             await _commands.AddModuleAsync<UnmuteCommand>();
         }

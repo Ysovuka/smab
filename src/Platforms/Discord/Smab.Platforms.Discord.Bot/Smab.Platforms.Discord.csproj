@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Gaming\Smab.Systems.Gaming\Smab.Systems.Gaming.csproj" />
+    <ProjectReference Include="..\..\..\Systems\Smab.Systems.Tasks\Smab.Systems.Tasks.csproj" />
     <ProjectReference Include="..\..\..\Systems\Smab.Systems.Voting\Smab.Systems.Voting.csproj" />
   </ItemGroup>
 

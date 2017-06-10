@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Smab.Platforms.Discord.Bots;
 using Smab.Platforms.Discord.Commands;
 using Smab.Platforms.Discord.Commands.Voting;
+using Smab.Systems.Tasks;
 using Smab.Systems.Voting;
 using System;
 using System.Reflection;
@@ -74,7 +75,8 @@ namespace Smab.Platforms
         private IServiceCollection RegisterServices()
         {
             var serviceCollection = new ServiceCollection();
-            
+
+            serviceCollection.AddSingleton<ITaskScheduler, Systems.Tasks.TaskScheduler>();
             serviceCollection.AddSingleton<IPollManager, PollManager>();
 
             return serviceCollection;
