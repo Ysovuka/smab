@@ -6,14 +6,14 @@ namespace Smab.Systems.Gaming
     public class Dice
     {
         private RandomNumberGenerator rnd = RandomNumberGenerator.Create();
-        private byte[] mbuffer = new byte[4];
+        private byte[] mbuffer = new byte[8];
 
         public double Roll(double max)
         {
             rnd.GetBytes(mbuffer);
-            UInt32 rand = BitConverter.ToUInt32(mbuffer, 0);
-            double dbl = rand / (1.0 + UInt32.MaxValue);
-            return dbl * max;
+            UInt64 rand = BitConverter.ToUInt64(mbuffer, 0);
+            double results = rand / (1.0 + UInt64.MaxValue);
+            return results * max;
         }
 
         public int Roll(int max)
