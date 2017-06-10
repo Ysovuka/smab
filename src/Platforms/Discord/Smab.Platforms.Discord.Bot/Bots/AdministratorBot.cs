@@ -4,6 +4,7 @@ using Discord.WebSocket;
 using Smab.Platforms.Discord.Administration.Common;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,6 +24,8 @@ namespace Smab.Platforms.Discord.Bots
             _commands = new CommandService();
             _client = new DiscordSocketClient();
 
+            _client.UserJoined += OnUserJoined;
+            _client.UserLeft += OnUserLeft;
             _client.Log += Log;
             _client.MessageReceived += OnMessageReceived;
 
@@ -47,6 +50,20 @@ namespace Smab.Platforms.Discord.Bots
         {
             await _commands.AddModuleAsync<MuteCommand>();
             await _commands.AddModuleAsync<UnmuteCommand>();
+        }
+
+        private async Task OnUserJoined(SocketGuildUser messageArgs)
+        {
+            Console.WriteLine($"{messageArgs.Username} joined the server.");
+            var channel = messageArgs.Guild.Channels.FirstOrDefault(c => c.Name.Equals("announcements"));
+            await (channel as SocketTextChannel).SendMessageAsync($"{messageArgs.Username} has joined the server.");
+        }
+
+        private async Task OnUserLeft(SocketGuildUser messageArgs)
+        {
+            Console.WriteLine($"{messageArgs.Username} left the server.");
+            var channel = messageArgs.Guild.Channels.FirstOrDefault(c => c.Name.Equals("announcements"));
+            await (channel as SocketTextChannel).SendMessageAsync($"{messageArgs.Username} has left the server.");
         }
 
         private async Task OnMessageReceived(SocketMessage messageArgs)
