@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smab.Platforms.Discord.Commands.Common
+namespace Smab.Platforms.Discord.Administration.Common
 {
     public class UnmuteCommand : ModuleBase
     {
@@ -22,9 +22,11 @@ namespace Smab.Platforms.Discord.Commands.Common
 
                 var mutedRole = Context.Guild.Roles.FirstOrDefault(r => r.Name == "Muted");
                 IGuildUser userInfo = user as IGuildUser;
-                await userInfo.RemoveRoleAsync(mutedRole);
-
-                await Context.Channel.SendMessageAsync($"{userInfo.Username} has been unmuted.");
+                if (userInfo.RoleIds.Any(id => id == mutedRole.Id))
+                {
+                    await userInfo.RemoveRoleAsync(mutedRole);
+                    await Context.Channel.SendMessageAsync($"{userInfo.Username} has been unmuted.");
+                }
             }
             catch (Exception ex)
             {

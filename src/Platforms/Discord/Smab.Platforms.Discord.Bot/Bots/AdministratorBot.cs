@@ -1,23 +1,22 @@
 ﻿using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
-using Smab.Platforms.Discord.Commands.Voting;
+using Smab.Platforms.Discord.Administration.Common;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smab.Platforms
+namespace Smab.Platforms.Discord.Bots
 {
-    public class VoteBot
+    public class AdministratorBot
     {
         private readonly IServiceProvider _serviceProvider;
 
         private CommandService _commands;
         private DiscordSocketClient _client;
-        
-        public VoteBot(IServiceProvider serviceProvider) { _serviceProvider = serviceProvider; }
+
+        public AdministratorBot(IServiceProvider serviceProvider) { _serviceProvider = serviceProvider; }
 
         public async Task Start(string token)
         {
@@ -46,14 +45,8 @@ namespace Smab.Platforms
 
         private async Task InstallCommands()
         {
-            await _commands.AddModuleAsync<PollAddChoiceCommand>();
-            await _commands.AddModuleAsync<PollCloseCommand>();
-            await _commands.AddModuleAsync<PollCreateCommand>();
-            await _commands.AddModuleAsync<PollOpenCommand>();
-            await _commands.AddModuleAsync<PollResultsCommand>();
-            await _commands.AddModuleAsync<PollSearchCommand>();
-            await _commands.AddModuleAsync<PollViewCommand>();
-            await _commands.AddModuleAsync<PollVoteCommand>();
+            await _commands.AddModuleAsync<MuteCommand>();
+            await _commands.AddModuleAsync<UnmuteCommand>();
         }
 
         private async Task OnMessageReceived(SocketMessage messageArgs)

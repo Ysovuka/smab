@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Discord;
 
-namespace Smab.Platforms.Discord.Commands.Common
+namespace Smab.Platforms.Discord.Administration.Common
 {
     public class MuteCommand : ModuleBase
     {
@@ -16,6 +16,13 @@ namespace Smab.Platforms.Discord.Commands.Common
         {
             try
             {
+                if (!Context.Guild.Roles.Any(r => r.Name == "Administrator"))
+                {
+                    return;
+                }
+                
+                IGuildUser messageAuthor = Context.Message.Author as IGuildUser;
+                
                 if (!Context.Guild.Roles.Any(r => r.Name == "Muted"))
                 {
                     await Context.Guild.CreateRoleAsync("Muted", new GuildPermissions());
@@ -23,9 +30,15 @@ namespace Smab.Platforms.Discord.Commands.Common
 
                 var mutedRole = Context.Guild.Roles.FirstOrDefault(r => r.Name == "Muted");
                 IGuildUser userInfo = user as IGuildUser;
-                await userInfo.AddRoleAsync(mutedRole);
-
-                await Context.Channel.SendMessageAsync($"{userInfo.Username} has been muted.");
+                if (!userInfo.RoleIds.Any(id => id == mutedRole.Id))
+                {
+                    await userInfo.AddRoleAsync(mutedRole);
+                    await Context.Channel.SendMessageAsync($"{userInfo.Username} has been muted.");
+                }
+                else
+                {
+                    await Context.Channel.SendMessageAsync($"{userInfo.Username} is already muted.");
+                }
             }
             catch(Exception ex)
             {

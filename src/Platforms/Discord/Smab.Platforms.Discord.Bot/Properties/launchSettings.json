@@ -2,7 +2,7 @@
   "profiles": {
     "Smab.Platforms.Discord.Bot": {
       "commandName": "Project",
-      "commandLineArgs": "\"MzIxODA1OTEwMTgxOTM3MTUz.DBjYtg.SYNXYz3LhYrA6ZJYwuZPuZopwZA\""
+      "commandLineArgs": "-vote=\"MzIxODA1OTEwMTgxOTM3MTUz.DBjYtg.SYNXYz3LhYrA6ZJYwuZPuZopwZA\" -administrator=\"MzIyOTA5ODg0OTgxMDUxNDAy.DBzdiQ.i1wpEIcPgti33YatinXABbK4m-o\""
     }
   }
 }

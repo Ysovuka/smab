@@ -16,8 +16,4 @@
     <ProjectReference Include="..\..\..\Systems\Smab.Systems.Voting\Smab.Systems.Voting.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Common\Commands\" />
-  </ItemGroup>
-
 </Project>
